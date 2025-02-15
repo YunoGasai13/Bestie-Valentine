@@ -19,7 +19,7 @@
     </ul>
 </nav>
     <div class="quiz-container">
-        <h2 class="quiz-title">Best Friend Quiz 💖</h2>
+        <h2 class="quiz-title">Best Friend Quiz</h2>
 
         <form id="quiz-form">
             <!-- Question 1 -->
@@ -44,9 +44,9 @@
             <!-- Question 3 -->
             <div class="question-block hidden" id="question-3">
                 <p class="question">3. What is my hideous habit?</p>
-                <label><input type="radio" name="q3" value="1" onclick="enableNext(3)"> Overthinking everything</label>
-                <label><input type="radio" name="q3" value="1" onclick="enableNext(3)"> Laughing at the wrong time</label>
-                <label><input type="radio" name="q3" value="1" onclick="enableNext(3)"> Forgetting what I was saying mid-sentence</label>
+                <label><input type="radio" name="q3" value="0" onclick="enableNext(3)"> Overthinking everything</label>
+                <label><input type="radio" name="q3" value="0" onclick="enableNext(3)"> Laughing at the wrong time</label>
+                <label><input type="radio" name="q3" value="0" onclick="enableNext(3)"> Forgetting what I was saying mid-sentence</label>
                 <label><input type="radio" name="q3" value="1" onclick="enableNext(3)"> All of the above (because I'm that messy!)</label>
                 <button type="button" class="back-btn" onclick="prevQuestion(3)">⬅️ Back</button>
                 <button type="button" class="next-btn" id="next-3" onclick="nextQuestion(3)" disabled>Next ➡️</button>
@@ -55,9 +55,9 @@
             <!-- Question 4 -->
             <div class="question-block hidden" id="question-4">
                 <p class="question">4. What’s my favorite song? <span class="hint">(Hint: my future partner needs to propose with it! 💍)</span></p>
-                <label><input type="radio" name="q4" value="0" onclick="enableNext(4)"> Apologize – One Republic</label>
-                <label><input type="radio" name="q4" value="0" onclick="enableNext(4)"> Querer querernos – Canserbero</label>
-                <label><input type="radio" name="q4" value="1" onclick="enableNext(4)"> Beyond</label>
+                <label><input type="radio" name="q4" value="1" onclick="enableNext(4)"> Beyond by Leon Bridges</label>
+                <label><input type="radio" name="q4" value="0" onclick="enableNext(4)"> Querer querernos by Canserbero</label>
+                <label><input type="radio" name="q4" value="0" onclick="enableNext(4)"> Somethin'Stupid by Frank Sinatra, Nancy Sinatra</label>
                 <button type="button" class="back-btn" onclick="prevQuestion(4)">⬅️ Back</button>
                 <button type="button" class="next-btn" id="next-4" onclick="nextQuestion(4)" disabled>Next ➡️</button>
             </div>
@@ -65,9 +65,9 @@
             <!-- Last Question -->
             <div class="question-block hidden" id="question-5">
                 <p class="question">5. What’s the best thing about our friendship?</p>
-                <label><input type="radio" name="q5" value="1" onclick="enableNext(5)"> We can be weird together</label>
-                <label><input type="radio" name="q5" value="1" onclick="enableNext(5)"> We always hype each other up</label>
-                <label><input type="radio" name="q5" value="1" onclick="enableNext(5)"> We just *get* each other</label>
+                <label><input type="radio" name="q5" value="0" onclick="enableNext(5)"> We can be weird together</label>
+                <label><input type="radio" name="q5" value="0" onclick="enableNext(5)"> We always hype each other up</label>
+                <label><input type="radio" name="q5" value="0" onclick="enableNext(5)"> We just *get* each other</label>
                 <label><input type="radio" name="q5" value="1" onclick="enableNext(5)"> All of the above 💕</label>
                 <button type="button" class="back-btn" onclick="prevQuestion(5)">⬅️ Back</button>
                 <button type="button" class="submit-btn" onclick="calculateScore()">Submit Quiz</button>

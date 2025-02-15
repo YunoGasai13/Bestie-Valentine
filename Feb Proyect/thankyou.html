@@ -133,28 +133,44 @@
     <button class="time-travel-btn" onclick="goToCarousel()">Shall we time travel?</button>
 
     <script>
-        let text = `Dear Bestie,\n
-Having you in my life means the world to me. Through every high and low, you’ve been there, and I hope you know I’ll always be there for you too. Thank you for your honesty and patience. You make life easier just by being in it, and I wouldn’t trade our friendship for anything.\n
+        document.addEventListener("DOMContentLoaded", function () {
+    let letterElement = document.getElementById("letter");
+
+    let correctText = `Dear Bestie,\n
+Having you in my life means the world to me. Through every high and low, you’ve been there,
+and I hope you know I’ll always be there for you too.
+Thank you for your honesty and patience.\n
+You make life easier just by being in it, and I wouldn’t trade our friendship for anything.\n
 I appreciate you more than words can say.\n
-Isma <3 `;
+Isma <3`;
 
-        let i = 0;
+    let i = 0;
 
-        function typeLetter() {
-            if (i < text.length) {
-                document.getElementById("letter").innerHTML += text.charAt(i) === '\n' ? "<br>" : text.charAt(i);
-                i++;
-                setTimeout(typeLetter, 50);
+    function typeLetter() {
+        if (i < correctText.length) {
+            if (correctText.charAt(i) === "\n") {
+                letterElement.innerHTML += "<br>"; // Ensures spacing between lines
+            } else {
+                letterElement.innerHTML += correctText.charAt(i);
             }
+            i++;
+            setTimeout(typeLetter, 50);
         }
+    }
 
-        window.onload = typeLetter;
+    // Prevent text duplication
+    letterElement.innerHTML = "";
+    typeLetter();
+});
+
 
         // Redirect to Carousel on Button Click
         function goToCarousel() {
             window.location.href = "carousel.html";
         }
     </script>
+
+    <!-- 🎶 Ensure Background Music Keeps Playing -->
     <script src="script.js"></script>
     <iframe src="music-player.html" allow="autoplay" id="music-frame" style="display:none;"></iframe>
 

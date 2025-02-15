@@ -57,9 +57,9 @@ function calculateScore() {
     });
 
     let resultText = "";
-    if (score === 6) {
+    if (score === 5) {
         resultText = "🥳 You're the ultimate bestie! I couldn't ask for a better friend! 💕";
-    } else if (score >= 4) {
+    } else if (score >= 3) {
         resultText = "😆 Almost perfect! But we need to hang out more!";
     } else {
         resultText = "🤨 Hmm… are you even my best friend?! Jk, I still love you! 😂";
@@ -78,7 +78,6 @@ function closeModal() {
     document.getElementById("resultModal").style.display = "none";
     window.location.href = "valentine.html"; // Redirect to valentine.html
 }
-
 
 // ➡️ Redirection Functions
 function goToValentine() {
@@ -102,80 +101,64 @@ function moveNoButton() {
     noButton.style.top = y + 'px';
 }
 
-// 💖 Typewriter Effect for Valentine's Letter
-document.addEventListener("DOMContentLoaded", function () {
-    let letterElement = document.getElementById("letter");
-    if (letterElement) {
-        let letterText = "Dear Bestie, You are the best thing that has ever happened to me. Thank you for being my person. I love you endlessly! ❤️";
-        let i = 0;
-
-        function typeLetter() {
-            if (i < letterText.length) {
-                letterElement.innerHTML += letterText.charAt(i);
-                i++;
-                setTimeout(typeLetter, 50);
-            }
-        }
-        typeLetter();
-    }
-
-    // 🎯 Ensure Only the First Image is Shown Initially (For Carousel Page)
-    let quizResult = localStorage.getItem("quizResult");
-    if (quizResult && document.getElementById("quiz-result")) {
-        document.getElementById("quiz-result").innerText = quizResult;
-    }
-
-    if (document.querySelector(".carousel-item")) {
-        images[currentSlide].style.display = "block";
-        document.querySelectorAll(".dot")[currentSlide].classList.add("active");
-    }
-});
-
 // 🖼️ Image Carousel Logic
-let currentSlide = 0;
-const images = document.querySelectorAll(".carousel-item");
-const dotsContainer = document.getElementById("dots-container");
+document.addEventListener("DOMContentLoaded", function () {
+    let images = document.querySelectorAll(".carousel-item");
+    let dotsContainer = document.getElementById("dots-container");
 
-// ⬅️➡️ Carousel Navigation
-function nextSlide() {
-    images[currentSlide].style.display = "none";
-    document.querySelectorAll(".dot")[currentSlide].classList.remove("active");
+    if (images.length === 0) return;
 
-    currentSlide = (currentSlide + 1) % images.length;
+    let currentSlide = 0;
 
-    images[currentSlide].style.display = "block";
-    document.querySelectorAll(".dot")[currentSlide].classList.add("active");
-}
+    // Ensure first image is visible
+    images.forEach((img, index) => img.style.display = index === 0 ? "block" : "none");
 
-function prevSlide() {
-    images[currentSlide].style.display = "none";
-    document.querySelectorAll(".dot")[currentSlide].classList.remove("active");
+    // ⬅️➡️ Carousel Navigation
+    function nextSlide() {
+        images[currentSlide].style.display = "none";
+        document.querySelectorAll(".dot")[currentSlide]?.classList.remove("active");
 
-    currentSlide = (currentSlide - 1 + images.length) % images.length;
+        currentSlide = (currentSlide + 1) % images.length;
 
-    images[currentSlide].style.display = "block";
-    document.querySelectorAll(".dot")[currentSlide].classList.add("active");
-}
-
-// ⏺️ Jump to Specific Slide
-function goToSlide(index) {
-    images[currentSlide].style.display = "none";
-    document.querySelectorAll(".dot")[currentSlide].classList.remove("active");
-
-    currentSlide = index;
-
-    images[currentSlide].style.display = "block";
-    document.querySelectorAll(".dot")[currentSlide].classList.add("active");
-}
-
-// 🔵 Create Dots for Each Image in Carousel
-if (dotsContainer) {
-    for (let i = 0; i < images.length; i++) {
-        let dot = document.createElement("span");
-        dot.classList.add("dot");
-        if (i === 0) dot.classList.add("active");
-        dot.setAttribute("onclick", `goToSlide(${i})`);
-        dotsContainer.appendChild(dot);
+        images[currentSlide].style.display = "block";
+        document.querySelectorAll(".dot")[currentSlide]?.classList.add("active");
     }
-}
-//music edit
+
+    function prevSlide() {
+        images[currentSlide].style.display = "none";
+        document.querySelectorAll(".dot")[currentSlide]?.classList.remove("active");
+
+        currentSlide = (currentSlide - 1 + images.length) % images.length;
+
+        images[currentSlide].style.display = "block";
+        document.querySelectorAll(".dot")[currentSlide]?.classList.add("active");
+    }
+
+    // ⏺️ Jump to Specific Slide
+    function goToSlide(index) {
+        images[currentSlide].style.display = "none";
+        document.querySelectorAll(".dot")[currentSlide]?.classList.remove("active");
+
+        currentSlide = index;
+
+        images[currentSlide].style.display = "block";
+        document.querySelectorAll(".dot")[currentSlide]?.classList.add("active");
+    }
+
+    // 🔵 Create Dots for Each Image in Carousel
+    if (dotsContainer) {
+        dotsContainer.innerHTML = ""; // Clear previous dots
+        for (let i = 0; i < images.length; i++) {
+            let dot = document.createElement("span");
+            dot.classList.add("dot");
+            if (i === 0) dot.classList.add("active");
+            dot.setAttribute("onclick", `goToSlide(${i})`);
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    // Attach functions globally
+    window.nextSlide = nextSlide;
+    window.prevSlide = prevSlide;
+    window.goToSlide = goToSlide;
+});
