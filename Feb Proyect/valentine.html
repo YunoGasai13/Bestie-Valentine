@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💕</title>
+    <style>
+        /* 🌸 General Styling */
+        html, body {
+            height: 100vh; /* Ensures the whole page fits the screen */
+            width: 100vw;
+            max-width: 100vw;
+            max-height: 100vh;
+            overflow: hidden; /* Prevents unwanted scrolling */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('images/themed website background.webp') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        /* 🌟 Top Navigation Menu */
+        .top-menu {
+            background: linear-gradient(90deg, #ff4d6d, #ff7b9c);
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .top-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .top-menu ul li {
+            display: inline;
+        }
+
+        .top-menu ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .top-menu ul li a:hover {
+            background: white;
+            color: #ff4d6d;
+        }
+
+        /* 💌 Valentine Container */
+        .valentine-container {
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            color: black;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 📝 Message Styling */
+        .valentine-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4d6d;
+            margin-bottom: 10px;
+        }
+
+        .valentine-message {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* 🎯 Answer Buttons */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Space between buttons */
+            flex-wrap: wrap;
+            width: 100%;
+            position: relative;
+        }
+
+        .yes-button, .no-button {
+            font-size: 18px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+            position: relative;
+            width: 120px;
+        }
+
+        .yes-button {
+            background: #ff4d6d;
+            color: white;
+        }
+
+        .yes-button:hover {
+            background: #ff7b9c;
+            transform: scale(1.1);
+        }
+
+        .no-button {
+            background: gray;
+            color: white;
+            position: relative;
+        }
+
+        /* 💔 Move "No" Button But Keep It Inside Screen */
+        .no-button:hover {
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-70%, -70%);
+        }
+
+        /* 🎯 Responsive Design */
+        @media (max-width: 768px) {
+            .valentine-container {
+                max-width: 90%;
+            }
+
+            .valentine-title {
+                font-size: 20px;
+            }
+
+            .valentine-message {
+                font-size: 16px;
+            }
+
+            .yes-button, .no-button {
+                font-size: 16px;
+                padding: 10px 20px;
+                width: 100px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 🌟 Top Navigation Menu -->
+    <nav class="top-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="valentine.html">Valentine</a></li>
+            <li><a href="thankyou.html">Letter</a></li>
+            <li><a href="carousel.html">Memories</a></li>
+        </ul>
+    </nav>
+
+    <!-- 💌 Valentine Card -->
+    <div class="valentine-container">
+        <h2 class="valentine-title">After over a decade of friendship...</h2>
+        <p class="valentine-message">
+            Do you still wanna be my Valentine?
+        </p>
+
+        <!-- 🎯 Answer Buttons -->
+        <div class="button-container">
+            <button class="yes-button" onclick="goToThankYou()">YES ❤️</button>
+            <button class="no-button" id="noButton" onmouseover="moveNoButton()">NOP 😂</button>
+        </div>
+    </div>
+
+    <script>
+        /* 🎯 Redirect YES Button */
+        function goToThankYou() {
+            window.location.href = "thankyou.html";
+        }
+
+        /* 💔 Move "NOP" Button But Keep It Inside Screen */
+        function moveNoButton() {
+            let button = document.getElementById('noButton');
+            let container = document.querySelector('.valentine-container');
+
+            // Get container dimensions
+            let containerRect = container.getBoundingClientRect();
+            let maxX = containerRect.width - button.offsetWidth;
+            let maxY = containerRect.height - button.offsetHeight;
+
+            let newX = Math.random() * maxX;
+            let newY = Math.random() * maxY;
+
+            button.style.position = "absolute";
+            button.style.left = `${newX}px`;
+            button.style.top = `${newY}px`;
+        }
+    </script>
+<script src="script.js"></script>
+<iframe src="music-player.html" allow="autoplay" id="music-frame" style="display:none;"></iframe>
+
+</body>
+</html>

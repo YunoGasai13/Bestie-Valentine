@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Memories 📸</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="quiz-background">
+    
+    <div class="quiz-container">
+        <h2 class="quiz-title">A Walk Down Memory Lane</h2>
+        <p class="memory-text">
+            Some of our best moments together, captured forever! ✨
+        </p>
+
+        <!-- 🌟 Top Navigation Menu -->
+        <nav class="top-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="valentine.html">Valentine</a></li>
+                <li><a href="thankyou.html">Letter</a></li>
+                <li><a href="carousel.html">Memories</a></li>
+            </ul>
+        </nav>
+
+        <!-- 📸 Image Carousel -->
+        <div class="carousel-container">
+            <button class="prev" onclick="prevSlide()">⬅️</button>
+            <div class="carousel">
+                <img src="images/caruselpics/one.jpeg" class="carousel-item">
+                <img src="images/caruselpics/two.jpeg" class="carousel-item">
+                <img src="images/caruselpics/three.jpeg" class="carousel-item">
+                <img src="images/caruselpics/four.jpeg" class="carousel-item">
+                <img src="images/caruselpics/five.jpeg" class="carousel-item">
+                <img src="images/caruselpics/six.jpeg" class="carousel-item">
+                <img src="images/caruselpics/seven.jpeg" class="carousel-item">
+                <img src="images/caruselpics/eight.jpeg" class="carousel-item">
+            </div>
+            <button class="next" onclick="nextSlide()">➡️</button>
+        </div>
+
+        <!-- Dots Indicator -->
+        <div class="dots-container" id="dots-container"></div>
+
+        <button class="back-home" onclick="goBackHome()">🏡 Back to Home</button>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <iframe src="music-player.html" allow="autoplay" id="music-frame" style="display:none;"></iframe>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestie Valentine 💖</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="photo-background">
+
+    <!-- 🌟 Top Navigation Menu -->
+    <nav class="top-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="valentine.html">Valentine</a></li>
+            <li><a href="thankyou.html">Letter</a></li>
+            <li><a href="carousel.html">Memories</a></li>
+        </ul>
+    </nav>
+
+    <!-- ✉️ Envelope -->
+    <div class="envelope-container" onclick="openEnvelope()">
+        <div class="envelope">
+            <div class="flap"></div>
+            <div class="letter">
+                <h1 class="question">Who is your favorite person in the world?</h1>
+                <div class="options">
+                    <div class="option">Your Dad</div>
+                    <div class="option">Milo</div>
+                    <div class="option" onclick="location.href='quiz.html'">Ismailyn Reyes ❤️</div>
+                    <div class="option">Anthony</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🎶 Background Music (Invisible) -->
+    <iframe src="music-player.html" allow="autoplay" id="music-frame" style="display:none;"></iframe>
+
+    <!-- 📜 JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- 🔊 Mute Button -->
+    <button id="mute-button">🔊</button>
+
+    <style>
+        /* Position the mute button in the top-right corner */
+        #mute-button {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #mute-button:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+    </style>
+
+    <script>
+        let muteButton = document.getElementById("mute-button");
+
+        // Function to send mute/unmute messages to the iframe
+        function toggleMute() {
+            let musicFrame = document.getElementById("music-frame");
+
+            if (sessionStorage.getItem("musicMuted") === "true") {
+                musicFrame.contentWindow.postMessage("unmute", "*");
+                sessionStorage.setItem("musicMuted", "false");
+                muteButton.innerText = "🔊";
+            } else {
+                musicFrame.contentWindow.postMessage("mute", "*");
+                sessionStorage.setItem("musicMuted", "true");
+                muteButton.innerText = "🔇";
+            }
+        }
+
+        // Set initial button state based on saved mute status
+        if (sessionStorage.getItem("musicMuted") === "true") {
+            muteButton.innerText = "🔇";
+        }
+
+        muteButton.addEventListener("click", toggleMute);
+    </script>
+
+</body>
+</html>
+

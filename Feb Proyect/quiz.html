@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Friend Quiz 🎮</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="quiz-background">
+    
+    <!-- 🌟 Top Navigation Menu -->
+<nav class="top-menu">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="valentine.html">Valentine</a></li>
+        <li><a href="thankyou.html">Letter</a></li>
+        <li><a href="carousel.html">Memories</a></li>
+    </ul>
+</nav>
+    <div class="quiz-container">
+        <h2 class="quiz-title">Best Friend Quiz 💖</h2>
+
+        <form id="quiz-form">
+            <!-- Question 1 -->
+            <div class="question-block" id="question-1">
+                <p class="question">1. What was the first craft gift I made for you?</p>
+                <label><input type="radio" name="q1" value="0" onclick="enableNext(1)"> Rubik’s photo album</label>
+                <label><input type="radio" name="q1" value="1" onclick="enableNext(1)"> An acronym of your name</label>
+                <label><input type="radio" name="q1" value="0" onclick="enableNext(1)"> An accordion with things that you love</label>
+                <button type="button" class="next-btn" id="next-1" onclick="nextQuestion(1)" disabled>Next ➡️</button>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-block hidden" id="question-2">
+                <p class="question">2. Where did we first meet?</p>
+                <label><input type="radio" name="q2" value="0" onclick="enableNext(2)"> Born Besties</label>
+                <label><input type="radio" name="q2" value="1" onclick="enableNext(2)"> High School</label>
+                <label><input type="radio" name="q2" value="0" onclick="enableNext(2)"> At a friend’s house</label>
+                <button type="button" class="back-btn" onclick="prevQuestion(2)">⬅️ Back</button>
+                <button type="button" class="next-btn" id="next-2" onclick="nextQuestion(2)" disabled>Next ➡️</button>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-block hidden" id="question-3">
+                <p class="question">3. What is my hideous habit?</p>
+                <label><input type="radio" name="q3" value="1" onclick="enableNext(3)"> Overthinking everything</label>
+                <label><input type="radio" name="q3" value="1" onclick="enableNext(3)"> Laughing at the wrong time</label>
+                <label><input type="radio" name="q3" value="1" onclick="enableNext(3)"> Forgetting what I was saying mid-sentence</label>
+                <label><input type="radio" name="q3" value="1" onclick="enableNext(3)"> All of the above (because I'm that messy!)</label>
+                <button type="button" class="back-btn" onclick="prevQuestion(3)">⬅️ Back</button>
+                <button type="button" class="next-btn" id="next-3" onclick="nextQuestion(3)" disabled>Next ➡️</button>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question-block hidden" id="question-4">
+                <p class="question">4. What’s my favorite song? <span class="hint">(Hint: my future partner needs to propose with it! 💍)</span></p>
+                <label><input type="radio" name="q4" value="0" onclick="enableNext(4)"> Apologize – One Republic</label>
+                <label><input type="radio" name="q4" value="0" onclick="enableNext(4)"> Querer querernos – Canserbero</label>
+                <label><input type="radio" name="q4" value="1" onclick="enableNext(4)"> Beyond</label>
+                <button type="button" class="back-btn" onclick="prevQuestion(4)">⬅️ Back</button>
+                <button type="button" class="next-btn" id="next-4" onclick="nextQuestion(4)" disabled>Next ➡️</button>
+            </div>
+
+            <!-- Last Question -->
+            <div class="question-block hidden" id="question-5">
+                <p class="question">5. What’s the best thing about our friendship?</p>
+                <label><input type="radio" name="q5" value="1" onclick="enableNext(5)"> We can be weird together</label>
+                <label><input type="radio" name="q5" value="1" onclick="enableNext(5)"> We always hype each other up</label>
+                <label><input type="radio" name="q5" value="1" onclick="enableNext(5)"> We just *get* each other</label>
+                <label><input type="radio" name="q5" value="1" onclick="enableNext(5)"> All of the above 💕</label>
+                <button type="button" class="back-btn" onclick="prevQuestion(5)">⬅️ Back</button>
+                <button type="button" class="submit-btn" onclick="calculateScore()">Submit Quiz</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- 🏆 Quiz Result Modal -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <p id="modalText"></p>
+            <button onclick="closeModal()">Continue 💖</button>
+        </div>
+    </div>
+    <iframe src="music-player.html" allow="autoplay" id="music-frame" style="display:none;"></iframe>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Music</title>
+</head>
+<body>
+    <audio id="background-music" autoplay loop>
+        <source src="music/background-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let audio = document.getElementById("background-music");
+
+        // Check if music was already playing before page change
+        if (sessionStorage.getItem("musicPlaying") === "true") {
+            audio.play();
+        }
+
+        // Store play state to keep music playing
+        audio.onplay = () => sessionStorage.setItem("musicPlaying", "true");
+        audio.onpause = () => sessionStorage.setItem("musicPlaying", "false");
+
+        // Handle mute state across pages
+        if (sessionStorage.getItem("musicMuted") === "true") {
+            audio.muted = true;
+        }
+
+        // Listen for mute/unmute messages
+        window.addEventListener("message", (event) => {
+            if (event.data === "mute") {
+                audio.muted = true;
+                sessionStorage.setItem("musicMuted", "true");
+            } else if (event.data === "unmute") {
+                audio.muted = false;
+                sessionStorage.setItem("musicMuted", "false");
+            }
+        });
+    </script>
+</body>
+</html>
+
+

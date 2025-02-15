@@ -1,0 +1,742 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: rgb(241, 148, 221);
+}
+
+/* 🌟 Top Menu Styles */
+.top-menu {
+    background: linear-gradient(90deg, #ff4d6d, #ff7b9c); /* Pink Gradient */
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Menu Items */
+.top-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Menu Links */
+.top-menu ul li {
+    display: inline;
+}
+
+.top-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+.top-menu ul li a:hover {
+    background: white;
+    color: #ff4d6d;
+}
+
+
+/* Background Image */
+.photo-background {
+    background: url('images/themed website background.webp') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Envelope Container */
+.envelope-container {
+    width: 300px;
+    height: 200px;
+    margin: 15% auto;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+/* Confetti Container */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    clip-path: path("M12 2 C12 -1 8 -4 5 0 C2 -4 -2 -1 0 2 C-2 4 2 8 5 10 C8 8 12 4 10 2 Z");
+    opacity: 0.7;
+    animation: fall linear infinite;
+}
+
+/* Heart Falling Animation */
+@keyframes fall {
+    from {
+        transform: translateY(-10vh) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+    }
+}
+
+
+/* Envelope */
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #ff4d6d; /* Valentine red */
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Envelope Flap */
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #ff758f;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transition: transform 0.5s ease-in-out;
+    transform-origin: top;
+}
+
+/* Letter (Hidden by Default) */
+.letter {
+    position: absolute;
+    top: 60%; /* Move it down further */
+    left: 50%;
+    width: 400px; /* Wider for better balance */
+    min-height: 150px; /* Make it longer but not taller */
+    background: white;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 12px;
+    padding: 25px 30px; /* Better spacing inside */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Ensure it appears above the envelope */
+}
+
+
+
+/* When Opened */
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+    transform: translate(-50%, -50%) scale(1);
+}
+.envelope-container {
+    position: relative; /* Keeps it behind the letter */
+    margin-top: 100px; /* Pushes everything down */
+    z-index: 5; /* Lower than the letter */
+}
+
+
+/* Question Styling */
+.question {
+    font-size: 22px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Options */
+.options {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Spacing between buttons */
+    width: 100%;
+}
+
+
+.option {
+    display: inline-block;
+    padding: 14px 20px;
+    background: rgba(255, 192, 203, 0.95);
+    color: black;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    min-width: 140px; /* Ensure uniform width */
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.option:hover {
+    background: red;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Background for Quiz Page */
+.quiz-background {
+    background: url('images/themed website background.webp') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: black;
+}
+
+/* Quiz Container */
+/* 🌎 Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: rgb(241, 148, 221);
+    margin: 0;
+    padding: 0;
+}
+
+/* 🌟 Top Navigation Menu */
+.top-menu {
+    background: #ff4d6d;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.top-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.top-menu li {
+    margin: 0 15px;
+}
+
+.top-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+.top-menu a:hover {
+    color: #ffd1dc;
+}
+
+/* 📷 Background Image */
+.photo-background {
+    background: url('images/themed website background.webp') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+/* ✉️ Envelope Container */
+.envelope-container {
+    width: 400px;
+    height: 250px;
+    margin: 15% auto 0;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 🎉 Confetti Container */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* ❤️ Floating Hearts */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    clip-path: path("M12 2 C12 -1 8 -4 5 0 C2 -4 -2 -1 0 2 C-2 4 2 8 5 10 C8 8 12 4 10 2 Z");
+    opacity: 0.7;
+    animation: fall linear infinite;
+}
+
+/* Heart Falling Animation */
+@keyframes fall {
+    from {
+        transform: translateY(-10vh) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* ✉️ Envelope */
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #ff4d6d; /* Valentine red */
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Envelope Flap */
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #ff758f;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transition: transform 0.5s ease-in-out;
+    transform-origin: top;
+}
+
+/* Letter (Hidden by Default) */
+.letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 150%;
+    background: white;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 10px;
+    padding: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease-in-out;
+}
+
+/* When Opened */
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* 🎓 Quiz Page Styling */
+.quiz-background {
+    background: url('images/themed website background.webp') no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: black;
+    padding-top: 80px; /* Prevents menu overlap */
+}
+
+/* 📝 Quiz Container */
+.quiz-container {
+    max-width: 650px;
+    margin: 100px auto 50px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Quiz Title */
+.quiz-title {
+    font-size: 28px;
+    color: #ff4d6d;
+    font-weight: bold;
+}
+
+/* 📝 Question Styling */
+.question {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff4d6d;
+    margin: 20px 0;
+}
+
+/* 🎯 Answer Options - Align Left */
+label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: rgba(255, 192, 203, 0.7);
+    padding: 12px;
+    margin: 6px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+label input[type="radio"] {
+    margin-right: 12px;
+}
+
+/* Hover Effect */
+label:hover {
+    background: #ff4d6d;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* 🎭 Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Box */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal Button */
+.modal-content button {
+    background: linear-gradient(90deg, #ff4d6d, #ff7b9c);
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.modal-content button:hover {
+    background: linear-gradient(90deg, #ff7b9c, #ff4d6d);
+}
+
+/* 🔵 Centered Buttons */
+.next-btn, .back-btn, .submit-btn {
+    background: #ff4d6d;
+    color: white;
+    font-size: 18px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.next-btn:hover, .back-btn:hover, .submit-btn:hover {
+    background: #ff7b9c;
+    transform: scale(1.1);
+}
+
+/* Disable Next Button */
+.next-btn:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
+/* 🎭 Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Quiz Title */
+.quiz-title {
+    font-size: 28px;
+    color: #ff4d6d; /* Valentine red */
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Question Styling */
+.question {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff4d6d;
+    margin: 20px 0;
+}
+
+/* Hint Styling */
+.hint {
+    font-size: 14px;
+    font-style: italic;
+    color: #c45a6a;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Answer Options - Align Left */
+label {
+    display: flex; /* Use flexbox to align radio buttons */
+    align-items: center; /* Ensure radio buttons align with text */
+    text-align: left;
+    width: 100%; /* Make labels fill the width */
+    background: rgba(255, 192, 203, 0.7); /* Soft pink */
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+/* Add spacing between radio button and text */
+label input[type="radio"] {
+    margin-right: 10px; /* Adjusts spacing between radio button and text */
+}
+
+/* Hover Effect */
+label:hover {
+    background: #ff4d6d;
+    color: white;
+    transform: scale(1.05);
+}
+
+
+/* Submit Button */
+.submit-btn {
+    background: linear-gradient(90deg, #ff4d6d, #ff7b9c);
+    color: white;
+    font-size: 18px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(90deg, #ff7b9c, #ff4d6d);
+    transform: scale(1.1);
+}
+.hidden {
+    display: none;
+}
+
+/* Next & Back Buttons */
+.next-btn, .back-btn, .submit-btn {
+    background: #ff4d6d;
+    color: white;
+    font-size: 18px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.next-btn:hover, .back-btn:hover, .submit-btn:hover {
+    background: #ff7b9c;
+    transform: scale(1.1);
+}
+
+.next-btn:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
+/* 🎭 MODAL STYLING (FIXED) */
+.modal {
+    display: none; /* ✅ Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* ✅ Dim background */
+    justify-content: center;
+    align-items: center;
+}
+
+/* ✅ Center the modal content properly */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Close button inside modal */
+.modal-content button {
+    background: linear-gradient(90deg, #ff4d6d, #ff7b9c);
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.modal-content button:hover {
+    background: linear-gradient(90deg, #ff7b9c, #ff4d6d);
+}
+
+/* ✅ FADE-IN EFFECT */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* 🎡 Image Carousel */
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 500px;
+    margin: 20px auto;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Carousel Images */
+.carousel-images {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-item {
+    max-width: 100%;
+    display: none; /* Hide all images initially */
+    border-radius: 8px;
+}
+
+/* Show First Image Initially */
+.carousel-item:first-child {
+    display: block;
+}
+
+
+/* Navigation Buttons */
+.prev, .next {
+    background: #ff4d6d;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+}
+
+.prev:hover, .next:hover {
+    background: #ff7b9c;
+    transform: scale(1.1);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Dots Indicator */
+.dots-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    background: gray;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: #ff4d6d;
+}
+
+/* Back to Home Button */
+.back-home {
+    display: block;
+    background: #ff4d6d;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    margin: 20px auto;
+    font-weight: bold;
+}
+
+.back-home:hover {
+    background: #ff7b9c;
+    transform: scale(1.05);
+}

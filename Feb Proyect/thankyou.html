@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You Bestie 💕</title>
+    <style>
+        /* 🌟 Top Menu Styles */
+        .top-menu {
+            background: linear-gradient(90deg, #ff4d6d, #ff7b9c); /* Pink Gradient */
+            padding: 15px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Menu Items */
+        .top-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Menu Links */
+        .top-menu ul li {
+            display: inline;
+        }
+
+        .top-menu ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        /* Hover Effect */
+        .top-menu ul li a:hover {
+            background: white;
+            color: #ff4d6d;
+        }
+
+        /* Page Background */
+        body {
+            text-align: center;
+            background: #e5d1b8; /* Aged paper tone */
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 80px 20px 20px; /* Adjusted padding to prevent menu overlap */
+        }
+
+        /* Letter Styling */
+        .letter-container {
+            background: url('images/oldpaper.png') no-repeat center center;
+            background-size: contain;
+            padding: 50px;
+            border-radius: 10px;
+            max-width: 450px;
+            height: 550px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .letter {
+            font-size: 18px;
+            color: black;
+            font-family: "Courier New", Courier, monospace; /* Typewriter font */
+            text-align: left;
+            line-height: 1.6;
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        /* Travel Button */
+        .time-travel-btn {
+            margin-top: 20px;
+            background: linear-gradient(90deg, #ff4d6d, #ff7b9c);
+            color: white;
+            font-size: 18px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            font-weight: bold;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .time-travel-btn:hover {
+            background: linear-gradient(90deg, #ff7b9c, #ff4d6d);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 🌟 Top Navigation Menu -->
+    <nav class="top-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="valentine.html">Valentine</a></li>
+            <li><a href="thankyou.html">Letter</a></li>
+            <li><a href="carousel.html">Memories</a></li>
+        </ul>
+    </nav>
+
+    <h1>Thank You for Being My Bestie!</h1>
+
+    <div class="letter-container">
+        <p class="letter" id="letter"></p>
+    </div>
+
+    <!-- Time Travel Button -->
+    <button class="time-travel-btn" onclick="goToCarousel()">Shall we time travel?</button>
+
+    <script>
+        let text = `Dear Bestie,\n
+Having you in my life means the world to me. Through every high and low, you’ve been there, and I hope you know I’ll always be there for you too. Thank you for your honesty and patience. You make life easier just by being in it, and I wouldn’t trade our friendship for anything.\n
+I appreciate you more than words can say.\n
+Isma <3 `;
+
+        let i = 0;
+
+        function typeLetter() {
+            if (i < text.length) {
+                document.getElementById("letter").innerHTML += text.charAt(i) === '\n' ? "<br>" : text.charAt(i);
+                i++;
+                setTimeout(typeLetter, 50);
+            }
+        }
+
+        window.onload = typeLetter;
+
+        // Redirect to Carousel on Button Click
+        function goToCarousel() {
+            window.location.href = "carousel.html";
+        }
+    </script>
+    <script src="script.js"></script>
+    <iframe src="music-player.html" allow="autoplay" id="music-frame" style="display:none;"></iframe>
+
+</body>
+</html>
